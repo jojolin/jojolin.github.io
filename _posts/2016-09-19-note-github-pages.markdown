@@ -18,6 +18,7 @@ categories: note github-pages
 > - 在debian(jessie)上构建，直接将github-pages项目映射到/root/blog下运行
 > - 下面是Dockerfile的一部分（注释是新添加上去的，Dockerfile是一个好东西，
 可以让你重新构造整个过程，并清楚地知道所有的依赖和坑)
+> - 添加该机器上的git项目为本地测试项目的远程分支进行推送以保持同步更新`git remote add mymachine me@machine`
 
 ``` Dockerfile
 FROM debian:jessie
