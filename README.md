@@ -1,2 +1,2 @@
 # jojolin blog
-> - name: jzlin
+> - my blog, thanks for visiting.
