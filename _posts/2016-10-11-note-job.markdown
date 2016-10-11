@@ -1,0 +1,6 @@
+---
+layout: post
+title: 工作小记
+date: 2016-10-11 23:26:16 +0800
+categories: note job
+---

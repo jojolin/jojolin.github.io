@@ -2,7 +2,7 @@
 layout: post
 title: "unix-rule"
 date: 2016-09-18 11:54:25 +0800
-categories: note unix-rule
+categories: note program
 ---
 ## 17原则
 - 模块原则： 使用简洁的接口拼合简单的部件。
