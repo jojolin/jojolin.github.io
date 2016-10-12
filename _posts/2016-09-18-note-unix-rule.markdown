@@ -1,60 +1,67 @@
 ---
 layout: post
-title: "unix-rule"
+title: "编程指导原则"
 date: 2016-09-18 11:54:25 +0800
 categories: note program
 ---
-## 17原则
-- 模块原则： 使用简洁的接口拼合简单的部件。
-  - 用清晰的接口把软件的若干模块组合成一个复杂的软件。使问题只是局限于某个局部，从而不会牵一发而动全身。
+原则用于指导（摘录自the art of unix programming, 翻译晦涩，故摘录原文)。
 
-- 清晰原则： 清晰胜于机巧
-  - 代码是给人看的，而不是给计算机看的。在选择算法和实现的时候要考虑程序的可扩展性。
+Doug McIlroy, the inventor of Unix pipes and one of the founders of the Unix tradition, had this to
+say at the time [McIlroy78]:
+    (i) Make each program do one thing well. To do a new job, build afresh rather
+    than complicate old programs by adding new features.
+    (ii) Expect the output of every program to become the input to another, as yet
+    unknown, program. Don’t clutter output with extraneous information. Avoid
+    stringently columnar or binary input formats. Don’t insist on interactive input.
+    (iii) Design and build software, even operating systems, to be tried early, ideally
+    within weeks. Don’t hesitate to throw away the clumsy parts and rebuild them.
+    (iv) Use tools in preference to unskilled help to lighten a programming task, even
+    if you have to detour to build the tools and expect to throw some of them out after
+    you’ve finished using them.
 
-- 组合原则： 设计时考虑拼接组合
-  - Unix提倡采用简单、文本化、面向流、设备无关的格式。传统Unix是将一个简单的文本流输入处理为一个简单的文本流输出。如果不使用简单的文本流就极其难以衔接。Unix中文本流之于工具，就如同面向对象环境中的消息之于对象。
+He later summarized it this way (quoted in A Quarter Century of Unix [Salus]):
+    This is the Unix philosophy: Write programs that do one thing and do it well.
+    Write programs to work together. Write programs to handle text streams, because
+    that is a universal interface.
 
-- 分离原则： 策略同机制分离，接口同引擎分离
-  - 防止策略变得死板，难以适应用户需求的改变。而且任何策略的改变都有可能导致机制的改变。
+Rob Pike, who became one of the great masters of C, offers a slightly different angle in Notes on C
+Programming [Pike]:
+    Rule 1. You can’t tell where a program is going to spend its time. Bottlenecks
+    occur in surprising places, so don’t try to second guess and put in a speed hack
+    until you’ve proven that’s where the bottleneck is.
+    Rule 2. Measure. Don’t tune for speed until you’ve measured, and even then don’t
+    unless one part of the code overwhelms the rest.
+    Rule 3. Fancy algorithms are slow when n is small, and n is usually small. Fancy
+    algorithms have big constants. Until you know that n is frequently going to be
+    big, don’t get fancy. (Even if n does get big, use Rule 2 first.)
+    Rule 4. Fancy algorithms are buggier than simple ones, and they’re much harder
+    to implement. Use simple algorithms as well as simple data structures.
+    Rule 5. Data dominates. If you’ve chosen the right data structures and organized
+    things well, the algorithms will almost always be self-evident. Data structures,
+    not algorithms, are central to programming.9
+    Rule 6. There is no Rule 6.
 
-- 简洁原则： 设计要简洁，复杂度能低则低
-  - 越是简洁，软件的维护成本就越低。
+Ken Thompson, the man who designed and implemented the first Unix, reinforced Pike’s rule 4 with
+a gnomic maxim worthy of a Zen patriarch:
+    When in doubt, use brute force.
 
-- 吝啬原则： 除非确无它法，不要编写庞大的程序
-  - 大主要是指：体积大，复杂度高，程序大了维护成本也会增加。
+More of the Unix philosophy was implied not by what these elders said but by what they did and the
+example Unix itself set. Looking at the whole, we can abstract the following ideas:
 
-- 透明性原则： 设计要可见，以便审查和调试。
-  - 调试占总开发时间的四分之三左右，开始的时候多做工作——方法则是设计的时候充分考虑透明性和显见性。
-
-- 健壮原则： 健壮源于透明与简洁
-  - 让程序的内部逻辑更加简单且易于理解——透明化和简洁化。
-
-- 表示原则： 把知识叠入数据以求逻辑质朴而健壮
-  - 数据要比编程逻辑更容易驾驭。在程序设计中应该主动把复杂代码转移到数据之中去。尤其是C语言对指针使用控制的功能，促进了在内核以上各个编码层面上动态修改引用结构。在结构中用非常简单的指针就能够完成任务，但是在其他的语言中则不得不使用复杂的过程。
-
-- 通俗原则：接口设计避免标新立异
-  - 设计过程中应该按照用户最可能熟悉的同样功能的接口和相似的程序来进行建模。
-
-- 缄默原则：如果程序没什么好说的，就沉默
-  - 若程序没有什么特别之处可讲，就选择保持沉默。一切从简是Unix的优良传统。
-
-- 补救原则：出现异常时马上退出，并给出足够的错误信息
-  - 软件应该尽可能地应付各种输入错误和自身运行错误。但是如果实在没有办法满足，则让程序以一种容易诊断错误的方式停止——尽可能多地暴露执行错误的信息。
-
-- 经济原则：宁花机器一分，不花程序员一秒
-  - 把复杂的运算交给机器完成，从而程序员则解救出来了（使用java等高级语言，避免复杂的内存负担）。
-
-- 生成原则：避免手工hack，尽量编写程序去生成程序
-  - 程序生成的代码简单而且可靠，比较典型的例子是Makefile生成器、GUI构建器
-
-- 优化原则：雕琢前要有原型，跑之前先学会走
-  - 避免为了蝇头小利而浪费太多的时间。不知道瓶颈，就乱优化代码，这是唯一一个比乱加功能更损害设计的错误。先制作原型，再优化。优化之前保证能用。
-
-- 多样原则：绝不相信“不二法门”的断言
-  - Unix采用广泛采用多语言，开放的可扩展系统和用户定制机制。
-
-- 扩展原则：设计着眼未来，未来总比预想的来的快
-  - 为自己的代码留下可扩展的空间，不要被原先不明智的选择束缚（考虑兼容性的问题）。
-
-## Unix软件的态度：
-- 看到该做的就做，但是如果不确定什么是对的，就不要做，至少在搞明白之后再做。
+1. Rule of Modularity: Write simple parts connected by clean interfaces.
+2. Rule of Clarity: Clarity is better than cleverness.
+3. Rule of Composition: Design programs to be connected to other programs.
+4. Rule of Separation: Separate policy from mechanism; separate interfaces from engines.
+5. Rule of Simplicity: Design for simplicity; add complexity only where you must.
+6. Rule of Parsimony: Write a big program only when it is clear by demonstration that nothing else will do.
+7. Rule of Transparency: Design for visibility to make inspection and debugging easier.
+8. Rule of Robustness: Robustness is the child of transparency and simplicity.
+9. Rule of Representation: Fold knowledge into data so program logic can be stupid and robust.
+10. Rule of Least Surprise: In interface design, always do the least surprising thing.
+11. Rule of Silence: When a program has nothing surprising to say, it should say nothing.
+12. Rule of Repair: When you must fail, fail noisily and as soon as possible.
+13. Rule of Economy: Programmer time is expensive; conserve it in preference to machine time.
+14. Rule of Generation: Avoid hand-hacking; write programs to write programs when you can.
+15. Rule of Optimization: Prototype before polishing. Get it working before you optimize it.
+16. Rule of Diversity: Distrust all claims for “one true way”.
+17. Rule of Extensibility: Design for the future, because it will be here sooner than you think
