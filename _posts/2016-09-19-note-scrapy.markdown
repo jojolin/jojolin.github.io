@@ -10,6 +10,7 @@ categories: note program
 - 通过scrapyd以进程方式进行调度。
 
 - spiderbase.py
+
 ```
 # -*- coding: utf-8 -*-
 '''
@@ -126,6 +127,7 @@ class SpiderBase(scrapy.Spider):
 ```
 
 - redisbase.py: redis基类
+
 ```
 # -*- coding: utf-8 -*-
 '''
@@ -189,6 +191,7 @@ class RedisBase(object):
 ```
 
 - cmdlinebase.py: 命令行基类
+
 ```
 # -*- coding: utf-8 -*-
 '''
