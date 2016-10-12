@@ -7,6 +7,32 @@ categories: note shift-dev-env
 随身携带的开发环境(python为主)
 相关配置以个人喜好为主，故不列出。
 
+## 安装清单
+- install-basic.sh
+- install-user.sh
+- install-oh-my-zsh.sh
+- install-networkenv.sh
+- install-scrapy-base.sh
+- install-scrapyenv.sh
+- install-emacs-conf.sh
+- install-vim-conf.sh
+- oh-my-zsh-tar.sh
+
+- robbyrussell.zsh-theme
+- ubuntu14.04-aliyun-sources.list
+- emacs.d-tar.sh
+- vim_runtime-tar.sh
+- .gitconfig
+- .gitignore
+- .jshrc
+- .localrc
+- .tmux.conf
+- .oh-my-zsh.tar.gz
+- .emacs.d.tar.gz
+- .vim_runtime.tar.gz
+- .vimrc
+- .zshrc
+
 ## 最基本
 - install-basic.sh
 
