@@ -14,7 +14,7 @@ categories: note program
 ```
 # -*- coding: utf-8 -*-
 '''
-Package: spiderbase.py
+Module: spiderbase.py
 Author: ^-^
 -----
 
@@ -148,7 +148,7 @@ class RedisBase(object):
         self.sp_name = kwargs.pop('spider_name', '')
         self.redis_host = 'localhost'
         self.redis_port = 6379
-        self.redis_pwd =''
+        self.redis_pwd = ''
         self.redis_key = ''
         self.url_seprator = '@@'
         self.server = None
@@ -166,9 +166,9 @@ class RedisBase(object):
 
     def setup(self, settings):
         self.url_seprator = settings.get('URL_SEPRATOR', self.url_seprator)
-        self.redis_host  = settings.get('REDIS_HOST', self.redis_host)
-        self.redis_port  = settings.getint('REDIS_PORT', self.redis_port)
-        self.redis_pwd =  settings.get('REDIS_PASSWORD', None)
+        self.redis_host = settings.get('REDIS_HOST', self.redis_host)
+        self.redis_port = settings.getint('REDIS_PORT', self.redis_port)
+        self.redis_pwd = settings.get('REDIS_PASSWORD', None)
         self.server = redis.Redis(host=self.redis_host,
                                   port=self.redis_port,
                                   password=self.redis_pwd)
@@ -195,7 +195,7 @@ class RedisBase(object):
 ```
 # -*- coding: utf-8 -*-
 '''
-Package: debugbase.py
+Module: cmdlinebase.py
 Author: ^-^
 -----
 command line source.
