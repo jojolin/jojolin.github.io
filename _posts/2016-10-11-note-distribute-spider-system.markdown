@@ -16,8 +16,8 @@ categories: note program
 - kafkamsgsel: kafka消息选择算法封装，供各个前端调用。
 
 ## 前端
-－docker_flask: flask运行环境的docker封装，运行微信。
+- docker_flask: flask运行环境的docker封装，运行微信。
 
 ## 内部支持
-－zrpcscrapyenv: 个人项目，内部rpc链接scrapyenv，环境隔离，rpc通讯, 基于zerorpc。
+- zrpcscrapyenv: 个人项目，内部rpc链接scrapyenv，环境隔离，rpc通讯, 基于zerorpc。
 
