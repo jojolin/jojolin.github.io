@@ -17,20 +17,19 @@ categories: note shift-dev-env
 - install-emacs-conf.sh
 - install-vim-conf.sh
 - oh-my-zsh-tar.sh
+- emacs.d-tar.sh
+- vim_runtime-tar.sh
 
 - robbyrussell.zsh-theme
 - ubuntu14.04-aliyun-sources.list
-- emacs.d-tar.sh
-- vim_runtime-tar.sh
 - .gitconfig
-- .gitignore
 - .jshrc
 - .localrc
 - .tmux.conf
 - .oh-my-zsh.tar.gz
 - .emacs.d.tar.gz
-- .vim_runtime.tar.gz
 - .vimrc
+- .vim_runtime.tar.gz
 - .zshrc
 
 ## 最基本
